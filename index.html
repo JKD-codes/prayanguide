@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrayanGuide — Prayana Travels Assistant</title>
+  <meta name="description" content="PrayanGuide is your AI travel assistant by Prayana Travels Pvt. Ltd. Get instant help with travel packages, bookings, visa assistance, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Animated background orbs -->
+  <div class="bg-orb bg-orb--1"></div>
+  <div class="bg-orb bg-orb--2"></div>
+  <div class="bg-orb bg-orb--3"></div>
+
+  <div class="chat-wrapper" id="chatWrapper">
+    <!-- Header -->
+    <header class="chat-header" id="chatHeader">
+      <div class="chat-header__logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="18" r="18" fill="url(#logoGrad)"/>
+          <path d="M10 22 L18 10 L26 22 Z" fill="#fff" opacity="0.9"/>
+          <path d="M14 22 L18 15 L22 22 Z" fill="rgba(37,99,235,0.5)"/>
+          <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36"><stop stop-color="#2563EB"/><stop offset="1" stop-color="#10B981"/></linearGradient></defs>
+        </svg>
+      </div>
+      <div class="chat-header__info">
+        <h1 class="chat-header__title">PrayanGuide</h1>
+        <span class="chat-header__status"><span class="status-dot"></span> Online</span>
+      </div>
+    </header>
+
+    <!-- Suggested Questions — always visible -->
+    <div class="suggested-questions" id="suggestedQuestions">
+      <button class="suggestion-pill" data-question="What services does Prayana offer?">What services does Prayana offer?</button>
+      <button class="suggestion-pill" data-question="What are the best budget travel packages?">What are the best budget travel packages?</button>
+      <button class="suggestion-pill" data-question="How can I book a trip with Prayana?">How can I book a trip with Prayana?</button>
+    </div>
+
+    <!-- Messages Area -->
+    <div class="chat-messages" id="chatMessages">
+      <!-- Welcome message injected by JS -->
+    </div>
+
+    <!-- Input Area -->
+    <div class="chat-input-bar" id="chatInputBar">
+      <input
+        type="text"
+        id="chatInput"
+        class="chat-input"
+        placeholder="Ask me about travel packages, bookings…"
+        autocomplete="off"
+      />
+      <button class="chat-send-btn" id="sendBtn" aria-label="Send message">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
