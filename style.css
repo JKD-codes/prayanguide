@@ -1,9 +1,12 @@
 /* ========================================
    PrayanGuide — iOS Glassmorphism Chatbot
+   with Trip Planner Components
    ======================================== */
 
 /* ---------- Reset & Base ---------- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,6 +16,8 @@
   --primary: #2563EB;
   --primary-light: #3b82f6;
   --accent: #10B981;
+  --accent-light: #34d399;
+  --warning: #f59e0b;
   --text: #111827;
   --text-light: #6b7280;
   --glass-bg: rgba(255, 255, 255, 0.22);
@@ -24,7 +29,8 @@
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   font-family: var(--font);
   color: var(--text);
@@ -77,16 +83,33 @@ body {
 }
 
 @keyframes orbFloat1 {
-  0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(60px, 80px) scale(1.12); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(60px, 80px) scale(1.12);
+  }
 }
+
 @keyframes orbFloat2 {
-  0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-50px, -70px) scale(1.1); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(-50px, -70px) scale(1.1);
+  }
 }
+
 @keyframes orbFloat3 {
-  0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-40px, 60px) scale(0.95); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(-40px, 60px) scale(0.95);
+  }
 }
 
 /* ---------- Chat Wrapper (Glass Card) ---------- */
@@ -94,9 +117,9 @@ body {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 480px;
-  height: 92vh;
-  max-height: 780px;
+  max-width: 500px;
+  height: 94vh;
+  max-height: 820px;
   display: flex;
   flex-direction: column;
   background: var(--glass-bg);
@@ -113,7 +136,7 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 18px 20px;
+  padding: 16px 20px;
   background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -136,7 +159,7 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 500;
   color: var(--accent);
 }
@@ -150,8 +173,17 @@ body {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%      { opacity: 0.5; transform: scale(0.85); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
 }
 
 /* ---------- Suggested Questions ---------- */
@@ -159,17 +191,17 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 12px 16px;
+  padding: 10px 16px;
   flex-shrink: 0;
-  border-bottom: 1px solid rgba(255,255,255,0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .suggestion-pill {
   font-family: var(--font);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 500;
   color: var(--primary);
-  padding: 8px 16px;
+  padding: 7px 14px;
   border: 1px solid rgba(37, 99, 235, 0.25);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.4);
@@ -207,9 +239,11 @@ body {
 .chat-messages::-webkit-scrollbar {
   width: 5px;
 }
+
 .chat-messages::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .chat-messages::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.12);
   border-radius: 10px;
@@ -217,18 +251,25 @@ body {
 
 /* ---------- Message Bubbles ---------- */
 .msg {
-  max-width: 85%;
+  max-width: 88%;
   padding: 14px 18px;
   border-radius: var(--radius-sm);
   line-height: 1.55;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   animation: msgFadeIn 0.35s ease both;
   word-wrap: break-word;
 }
 
 @keyframes msgFadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .msg--bot {
@@ -250,10 +291,16 @@ body {
 
 /* Bot message inner formatting */
 .msg--bot h3 {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 6px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 8px;
   color: var(--primary);
+}
+
+.msg--bot h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
 }
 
 .msg--bot ul {
@@ -261,7 +308,13 @@ body {
   margin: 4px 0;
 }
 
-.msg--bot ul li {
+.msg--bot ol {
+  padding-left: 18px;
+  margin: 4px 0;
+}
+
+.msg--bot ul li,
+.msg--bot ol li {
   margin-bottom: 3px;
 }
 
@@ -277,6 +330,13 @@ body {
   font-weight: 600;
 }
 
+.hint-text {
+  font-size: 0.78rem !important;
+  color: var(--text-light) !important;
+  font-style: italic;
+}
+
+/* ---------- Package Cards (FAQ) ---------- */
 .msg--bot .package-card {
   background: rgba(37, 99, 235, 0.06);
   border: 1px solid rgba(37, 99, 235, 0.15);
@@ -296,6 +356,312 @@ body {
   font-size: 0.8rem;
   margin-bottom: 2px;
   color: var(--text-light);
+}
+
+/* ---------- Option Buttons (Trip Planner) ---------- */
+.option-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.option-btn {
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 9px 16px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(37, 99, 235, 0.25);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.option-btn:hover {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
+}
+
+.option-btn:active {
+  transform: scale(0.95);
+}
+
+.option-btn--selected {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+/* ---------- Destination Cards ---------- */
+.dest-card {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 8px 0;
+  transition: transform 0.2s ease;
+}
+
+.dest-card:hover {
+  transform: translateY(-1px);
+}
+
+.dest-card h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.dest-card p {
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.dest-weather {
+  font-size: 0.78rem !important;
+  color: var(--accent) !important;
+  font-weight: 500;
+}
+
+.crowd-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-top: 4px;
+}
+
+.crowd-high {
+  background: rgba(245, 158, 11, 0.15);
+  color: #b45309;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.crowd-low {
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+/* ---------- Itinerary Day Cards ---------- */
+.itinerary-day {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 8px 0;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.itinerary-day:last-of-type {
+  border-bottom: none;
+}
+
+.day-badge {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.day-content h4 {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.day-content p {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  line-height: 1.45;
+}
+
+/* ---------- Cost Breakdown ---------- */
+.cost-breakdown {
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px solid rgba(16, 185, 129, 0.18);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 12px 0 4px;
+}
+
+.cost-breakdown h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.cost-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.cost-row:last-child {
+  border-bottom: none;
+}
+
+.cost-row--total {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1.5px solid rgba(16, 185, 129, 0.3);
+  border-bottom: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+/* ---------- Hotel Cards ---------- */
+.hotel-card {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin: 8px 0;
+}
+
+.hotel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.hotel-header h4 {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.hotel-rating {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--warning);
+  background: rgba(245, 158, 11, 0.1);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.hotel-card p {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-bottom: 3px;
+}
+
+.hotel-price {
+  font-weight: 600 !important;
+  color: var(--accent) !important;
+}
+
+/* ---------- Transport Cards ---------- */
+.transport-card {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin: 8px 0;
+}
+
+.transport-card h4 {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.transport-card p {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-bottom: 3px;
+}
+
+.transport-card--highlight {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.best-value-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #047857;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-top: 4px;
+}
+
+/* ---------- Trip Summary ---------- */
+.trip-summary {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(16, 185, 129, 0.08));
+  border: 1.5px solid rgba(37, 99, 235, 0.18);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-top: 14px;
+}
+
+.trip-summary h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.summary-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.summary-item span:last-child {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.trip-summary p {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(37, 99, 235, 0.12);
 }
 
 /* ---------- Typing Indicator ---------- */
@@ -323,12 +689,27 @@ body {
   animation: typingBounce 1.2s ease-in-out infinite;
 }
 
-.typing-indicator span:nth-child(2) { animation-delay: 0.15s; }
-.typing-indicator span:nth-child(3) { animation-delay: 0.3s; }
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.3s;
+}
 
 @keyframes typingBounce {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-  30% { transform: translateY(-6px); opacity: 1; }
+
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+
+  30% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
 }
 
 /* ---------- Input Bar ---------- */
@@ -347,7 +728,7 @@ body {
 .chat-input {
   flex: 1;
   font-family: var(--font);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   padding: 12px 18px;
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 999px;
@@ -401,7 +782,7 @@ body {
 
   .suggested-questions {
     gap: 6px;
-    padding: 10px 12px;
+    padding: 8px 12px;
   }
 
   .suggestion-pill {
@@ -410,6 +791,20 @@ body {
   }
 
   .msg {
-    max-width: 90%;
+    max-width: 92%;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .option-buttons {
+    gap: 6px;
+  }
+
+  .option-btn {
+    font-size: 0.74rem;
+    padding: 7px 12px;
   }
 }
